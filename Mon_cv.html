@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Lawrence Toudonou</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        @media print {
+            body { 
+                margin: 0; 
+                padding: 0;
+                background: white !important;
+                font-size: 10.5px;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .no-print { 
+                display: none !important; 
+            }
+            .cv-container {
+                box-shadow: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                max-width: none !important;
+                min-height: auto;
+            }
+            .header {
+                padding: 20px 20px !important;
+            }
+            .content {
+                padding: 15px 20px !important;
+            }
+            .section {
+                margin-bottom: 18px !important;
+            }
+            .name {
+                font-size: 2.1rem !important;
+                margin-bottom: 6px !important;
+            }
+            .title {
+                font-size: 0.95rem !important;
+                margin-bottom: 15px !important;
+            }
+            .contact-grid {
+                margin-top: 12px !important;
+                gap: 6px !important;
+            }
+            .contact-item {
+                font-size: 0.85rem !important;
+            }
+            .contact-icon {
+                width: 16px !important;
+                height: 16px !important;
+                font-size: 10px !important;
+            }
+            .section-title {
+                font-size: 1.2rem !important;
+                margin-bottom: 12px !important;
+                padding-bottom: 5px !important;
+            }
+            .section-icon {
+                width: 20px !important;
+                height: 20px !important;
+                font-size: 12px !important;
+            }
+            .skills-grid {
+                gap: 8px !important;
+                grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            }
+            .skill-category, .project-item, .experience-item, .education-item, .activities, .language-item {
+                padding: 10px !important;
+                margin-bottom: 8px !important;
+            }
+            .profile-text {
+                padding: 12px !important;
+                font-size: 0.9rem !important;
+            }
+            .skill-title, .project-title, .experience-title, .education-degree, .language-name {
+                font-size: 0.9rem !important;
+                margin-bottom: 5px !important;
+            }
+            .skill-list, .project-description, .experience-description, .education-details, .language-level, .activity-item {
+                font-size: 0.8rem !important;
+                line-height: 1.3 !important;
+            }
+            .experience-header, .education-header {
+                margin-bottom: 8px !important;
+                gap: 5px !important;
+            }
+            .experience-company, .education-school {
+                font-size: 0.8rem !important;
+            }
+            .experience-date, .education-date {
+                padding: 2px 6px !important;
+                font-size: 0.75rem !important;
+            }
+            .two-column {
+                gap: 15px !important;
+            }
+            /* Styles pour les messages en bas du CV */
+            #code-message, #click-message {
+                text-align: center;
+                margin-top: 10px; /* Réduit l'espace entre les messages */
+                font-size: 0.8rem;
+                color: #64748b;
+                font-style: italic;
+            }
+            #code-message {
+                margin-top: 30px; /* Maintient l'espace au-dessus du premier message */
+            }
+        }
+        
+        @media screen {
+            body {
+                background: #f8fafc;
+                padding: 20px;
+            }
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.4;
+            color: #1e293b;
+            font-size: 12px;
+        }
+        
+        .cv-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            min-height: 297mm;
+        }
+        
+        .action-buttons {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 1000;
+        }
+        
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            min-width: 140px;
+        }
+        
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+        
+        .btn-success {
+            background: #10b981;
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background: #059669;
+            transform: translateY(-2px);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            color: white;
+            padding: 30px 25px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .name {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .title {
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            line-height: 1.3;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            opacity: 0.95;
+        }
+        
+        .contact-icon {
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        
+        .content {
+            padding: 25px;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #3b82f6;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+        }
+        
+        .section-icon {
+            width: 24px;
+            height: 24px;
+            background: #3b82f6;
+            color: white;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+        
+        .profile-text {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #475569;
+            text-align: justify;
+            background: #f8fafc;
+            padding: 18px;
+            border-radius: 8px;
+            border-left: 3px solid #3b82f6;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 12px;
+        }
+        
+        .skill-category {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, #3b82f6, #8b5cf6);
+        }
+        
+        .skill-category:hover {
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.15);
+            transform: translateY(-1px);
+        }
+        
+        .skill-title {
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+        
+        .skill-list {
+            color: #64748b;
+            line-height: 1.4;
+            font-size: 0.85rem;
+        }
+        
+        .project-item {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 12px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .project-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, #10b981, #059669);
+        }
+        
+        .project-item:hover {
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.15);
+            transform: translateY(-1px);
+        }
+        
+        .project-title {
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+        
+        .project-description {
+            color: #64748b;
+            line-height: 1.4;
+            font-size: 0.85rem;
+        }
+        
+        .experience-item, .education-item {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .experience-item::before, .education-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, #f59e0b, #d97706);
+        }
+        
+        .experience-header, .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .experience-title, .education-degree {
+            font-weight: 600;
+            color: #0f172a;
+            font-size: 0.95rem;
+        }
+        
+        .experience-company, .education-school {
+            font-weight: 500;
+            color: #3b82f6;
+            margin-top: 2px;
+            font-size: 0.85rem;
+        }
+        
+        .experience-date, .education-date {
+            background: #f1f5f9;
+            color: #475569;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .experience-description, .education-details {
+            color: #64748b;
+            line-height: 1.4;
+            font-size: 0.85rem;
+        }
+        
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+        }
+        
+        .language-item {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .language-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #8b5cf6, #3b82f6);
+        }
+        
+        .language-name {
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+        }
+        
+        .language-level {
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+        
+        .activities {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .activities::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, #ef4444, #dc2626);
+        }
+        
+        .activity-list {
+            color: #64748b;
+            line-height: 1.5;
+        }
+        
+        .activity-item {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 0.85rem;
+        }
+        
+        .activity-bullet {
+            width: 4px;
+            height: 4px;
+            background: #3b82f6;
+            border-radius: 50%;
+            margin-top: 6px;
+            flex-shrink: 0;
+        }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 25px 15px;
+            }
+            
+            .name {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 20px 15px;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            
+            .experience-header, .education-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="action-buttons no-print">
+        <button class="btn btn-primary" onclick="window.print()">🖨️ Imprimer</button>
+        <button class="btn btn-success" onclick="downloadCV()">📥 Télécharger PDF</button>
+    </div>
+
+    <div class="cv-container">
+        <header class="header">
+            <div class="header-content">
+                <h1 class="name">LAWRENCE TOUDONOU</h1>
+                <p class="title">Alternant en Cybersécurité | Passionné par le Pentest, l'Analyse de Vulnérabilités & la Défense Réseau</p>
+                
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <span>Strasbourg, France</span>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <span>lawrencetoudonou08@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <span>+33 7 51 16 79 77</span>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">💼</div>
+                        <span>linkedin.com/in/lawrence-toudonou-197904266/</span>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🔗</div>
+                        <span>github.com/lawrencetoudonou122</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="content">
+            <section class="section">
+                <h2 class="section-title">
+                    <div class="section-icon">🎯</div>
+                    PROFIL PROFESSIONNEL
+                </h2>
+                <div class="profile-text">
+                    Étudiant en informatique avec 3 ans d'expérience à Epitech, je me spécialise aujourd'hui en cybersécurité. 
+                    Mes projets personnels, CTFs et missions m'ont permis d'explorer des domaines variés : test d'intrusion, 
+                    durcissement réseau, réponse à incident, forensic, analyse de logs et sécurité applicative. Je cherche une 
+                    alternance pour consolider mes compétences techniques et contribuer à des missions concrètes de sécurisation des systèmes.
+                </div>
+            </section>
+
+            <div class="two-column">
+                <div>
+                    <section class="section">
+                        <h2 class="section-title">
+                            <div class="section-icon">🌐</div>
+                            LANGUES
+                        </h2>
+                        <div class="languages-grid">
+                            <div class="language-item">
+                                <div class="language-name">Français</div>
+                                <div class="language-level">Langue maternelle</div>
+                            </div>
+                            <div class="language-item">
+                                <div class="language-name">Anglais</div>
+                                <div class="language-level">Niveau avancé</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2 class="section-title">
+                            <div class="section-icon">🎓</div>
+                            FORMATION
+                        </h2>
+                        <div class="education-item">
+                            <div class="education-header">
+                                <div>
+                                    <div class="education-degree">Bachelor en Informatique</div>
+                                    <div class="education-school">Epitech Strasbourg</div>
+                                </div>
+                                <div class="education-date">2022 – 2025</div>
+                            </div>
+                            <div class="education-details">
+                                <strong>Projets majeurs :</strong> Authentification OAuth2 (Area), Sécurisation réseau multijoueur (R-TYPE)
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2 class="section-title">
+                            <div class="section-icon">💼</div>
+                            EXPÉRIENCES
+                        </h2>
+                        
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <div>
+                                    <div class="experience-title">Stagiaire Cybersécurité</div>
+                                    <div class="experience-company">HOMINTEC Bénin</div>
+                                </div>
+                                <div class="experience-date">2023</div>
+                            </div>
+                            <div class="experience-description">
+                                • Développement d'un outil sécurisé de gestion de données transport<br>
+                                • Mise en place de filtrage IP et sécurisation des accès<br>
+                                • Analyse réseau sur flux anormaux et détection d'intrusions
+                            </div>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <div>
+                                    <div class="experience-title">Développeur sécurité</div>
+                                    <div class="experience-company">Projet Epiflipboard</div>
+                                </div>
+                                <div class="experience-date">2024</div>
+                            </div>
+                            <div class="experience-description">
+                                • Intégration de sécurisation API avec tests de pénétration<br>
+                                • Tests de vulnérabilités approfondis avec Burp Suite<br>
+                                • Implémentation du chiffrement des données sensibles
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div>
+                    <section class="section">
+                        <h2 class="section-title">
+                            <div class="section-icon">🛡️</div>
+                            COMPÉTENCES CYBERSÉCURITÉ
+                        </h2>
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <div class="skill-title">Défense & Réponse à Incident</div>
+                                <div class="skill-list">Splunk, QRadar, Elastic Stack (ELK), détection d'intrusions, analyse de logs, SOAR (Security Orchestration, Automation, and Response)</div>
+                            </div>
+                            
+                            <div class="skill-category">
+                                <div class="skill-title">Threat Hunting & Analyse</div>
+                                <div class="skill-list">MITRE ATT&CK, YARA, Zeek, Suricata, analyse de malwares, forensic (Autopsy, FTK Imager)</div>
+                            </div>
+                            
+                            <div class="skill-category">
+                                <div class="skill-title">Sécurité Réseau</div>
+                                <div class="skill-list">Wireshark, tcpdump, Firewall (pfSense, iptables), VPN (OpenVPN), IDS/IPS, segmentation réseau</div>
+                            </div>
+                            
+                            <div class="skill-category">
+                                <div class="skill-title">Sécurité Endpoint</div>
+                                <div class="skill-list">CrowdStrike, Microsoft Defender, EDR (Endpoint Detection and Response), hardening Windows/Linux</div>
+                            </div>
+                            
+                            <div class="skill-category">
+                                <div class="skill-title">Gestion des Vulnérabilités</div>
+                                <div class="skill-list">Nessus, Qualys, OpenVAS, CVE/CVSS, patching, gestion des risques</div>
+                            </div>
+                            
+                            <div class="skill-category">
+                                <div class="skill-title">Pentesting (Complémentaire)</div>
+                                <div class="skill-list">Nmap, Burp Suite, Metasploit, OWASP Top 10, tests d'intrusion réseau et applicatif</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2 class="section-title">
+                            <div class="section-icon">💻</div>
+                            ENVIRONNEMENT TECHNIQUE
+                        </h2>
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <div class="skill-title">Langages</div>
+                                <div class="skill-list">Python, PowerShell, Bash, SQL, JavaScript</div>
+                            </div>
+                            
+                            <div class="skill-category">
+                                <div class="skill-title">SIEM & Monitoring</div>
+                                <div class="skill-list">Splunk, Elastic Stack, QRadar, Grafana, Prometheus</div>
+                            </div>
+                            
+                            <div class="skill-category">
+                                <div class="skill-title">Systèmes & Réseaux</div>
+                                <div class="skill-list">Kali Linux, Windows Server, Active Directory, Docker, VMware, Cisco Packet Tracer</div>
+                            </div>
+                            
+                            <div class="skill-category">
+                                <div class="skill-title">Outils de Sécurité</div>
+                                <div class="skill-list">Wireshark, Nessus, CrowdStrike, Zeek, YARA, Autopsy</div>
+                            </div>
+                            
+                            <div class="skill-category">
+                                <div class="skill-title">Cloud & DevSecOps</div>
+                                <div class="skill-list">AWS Security (IAM, GuardDuty), Git, Jenkins, Ansible</div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <div class="section-icon">🚀</div>
+                    PROJETS TECHNIQUES
+                </h2>
+                
+                <div class="project-item">
+                    <div class="project-title">Mise en place d’un SIEM avec Elastic Stack (Projet Professionnel)</div>
+                    <div class="project-description">
+                        Déploiement d’un SIEM avec Elastic Stack pour surveiller les événements de sécurité dans un environnement d’entreprise simulé. Configuration de Filebeat et Winlogbeat pour collecter les logs système et réseau. Création de tableaux de bord Kibana pour visualiser les alertes (ex. : tentatives de connexion SSH anormales). Mise en place de règles de détection basées sur MITRE ATT&CK.
+                    </div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-title">Développement d’un script de détection d’anomalies réseau (Projet Personnel)</div>
+                    <div class="project-description">
+                        Création d’un script Python utilisant Scapy et Zeek pour analyser le trafic réseau en temps réel. Détection de comportements suspects (ex. : scans de ports, flux DNS anormaux). Intégration avec Splunk pour l’exportation et la visualisation des alertes. Optimisation pour réduire les faux positifs via seuils dynamiques.
+                    </div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-title">CTF Hack The Box : Blue Team Challenges</div>
+                    <div class="project-description">
+                        Résolution de challenges défensifs sur Hack The Box (ex. : “Log Analysis” et “Incident Response”). Analyse de fichiers PCAP pour identifier des attaques de type brute force et exfiltration de données. Utilisation de Wireshark et YARA pour extraire des indicateurs de compromission (IoC). Classement dans le top 10% des participants.
+                    </div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-title">Simulation de réponse à incident (Projet Professionnel)</div>
+                    <div class="project-description">
+                        Conduite d’une simulation de réponse à une attaque ransomware dans un environnement VMware. Isolation des systèmes infectés, analyse des logs avec Splunk, et récupération via sauvegardes. Rédaction d’un rapport d’incident avec recommandations de durcissement (ex. : MFA, segmentation réseau).
+                    </div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-title">CTF TryHackMe : Defensive Pathways</div>
+                    <div class="project-description">
+                        Résolution de challenges TryHackMe axés sur la défense (ex. : “Splunk Basics”, “Network Security”). Configuration de règles SIEM pour détecter des intrusions. Analyse de malwares dans une sandbox et création de signatures YARA. Obtention du badge “Blue Team Fundamentals”.
+                    </div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-title">Audit de sécurité Active Directory (Projet Personnel)</div>
+                    <div class="project-description">
+                        Audit d’un environnement Active Directory simulé avec BloodHound et PowerView pour identifier les misconfigurations (ex. : privilèges excessifs, Kerberoasting). Mise en place de politiques de sécurité (GPO) pour renforcer les accès. Documentation des bonnes pratiques pour les administrateurs.
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <div class="section-icon">🏆</div>
+                    ACTIVITÉS & VEILLE TECHNOLOGIQUE
+                </h2>
+                <div class="activities">
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-bullet"></div>
+                            <span><strong>Plateformes CTF :</strong> Hack The Box (Blue Team tracks), TryHackMe (Defensive Pathways), Root-Me (Forensic & Network)</span>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-bullet"></div>
+                            <span><strong>Veille cybersécurité :</strong> Suivi quotidien des CVE via NVD, Exploit DB, ThreatPost, et blog DarkReading</span>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-bullet"></div>
+                            <span><strong>Certifications en cours :</strong> CompTIA Security+, Splunk Certified User, TryHackMe Junior Penetration Tester</span>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-bullet"></div>
+                            <span><strong>Communauté :</strong> Membre actif du groupe Discord “CyberSec France” pour partager des analyses de menaces et bonnes pratiques</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <div id="code-message"> Ce CV a été entièrement écrit avec du code.</div>
+        <div id="click-message">Cliquer la bande passante blanche en haut du pdf pour voir mon nom et prenom</div>
+    </div>
+
+    <script>
+        function downloadCV() {
+            const today = new Date();
+            const dateStr = today.toISOString().split('T')[0];
+            
+            alert(`💡 Pour télécharger votre CV en PDF :
+
+1️⃣ Cliquez sur "🖨️ Imprimer" (ou utilisez Ctrl+P)
+2️⃣ Sélectionnez "Enregistrer au format PDF"
+3️⃣ Nom suggéré : CV_Lawrence_Toudonou_${dateStr}
+4️⃣ Cliquez sur "Enregistrer"
+
+✅ Le CV sera parfaitement mis en forme sans les boutons !`);
+            
+            setTimeout(() => {
+                window.print();
+            }, 1000);
+        }
+
+        window.addEventListener('beforeprint', function() {
+            document.body.style.background = 'white';
+        });
+
+        window.addEventListener('afterprint', function() {
+            document.body.style.background = '#f8fafc';
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
+                e.preventDefault();
+                window.print();
+            }
+        });
+    </script>
+</body>
+</html>
